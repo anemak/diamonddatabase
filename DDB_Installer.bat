@@ -55,7 +55,7 @@ if %quick% == off if %yesno% neq y if %yesno% neq Y goto done
 echo.
 echo Importing World database
 
-for %%i in (%dbpath%\*.sql) do if %%i neq %dbpath%\*.sql) if %%i neq %dbpath%\*.sql) if %%i neq %dbpath%\*.sql) echo %%i & %mysql%\mysql --max_allowed_packet=100M -q -s -h %svr% --user=%user% --password=%pass% --port=%port% %wdb% < %%i
+for %%i in (%dbpath%\*.sql) do if %%i neq %dbpath%\*.sql) if %%i neq %dbpath%\*.sql) if %%i neq %dbpath%\*.sql) echo %%i & %mysql%\mysql -q -s -h %svr% --user=%user% --password=%pass% --port=%port% --max_allowed_packet=4096M %wdb% < %%i
 
 if %quick% neq off goto :eof
 
